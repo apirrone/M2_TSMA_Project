@@ -49,7 +49,7 @@ Notre projet s'organise de la façon suivante :
 
 \section*{Choix des descripteurs}
 
-Dans \textbf{extract.py}, on extrait un certain nombre de features (descripteurs) par morceau, nous extrayons les features suivantes grâce à \textbf{Librosa} :
+Dans \textbf{extract.py}, on extrait les features (descripteurs) suivantes par morceau grâce à \textbf{Librosa}:
 
 \begin{itemize}
 
@@ -63,8 +63,11 @@ Dans \textbf{extract.py}, on extrait un certain nombre de features (descripteurs
 
 
 
-
 \section*{Description du modèle}
+
+Nous avons implémenté un simple réseau de neurones entièrement connecté avec deux couches cachées de 200 et 300 neurones. Le réseau prends en entrée un vecteur contenant toutes les features du morceau (on extrait le même nombre de features pour chaque morceau), et sort une probabilité d'appartenance à chaque classe dans la couche de sortie (8 neurones).\\
+
+Lors de nos expérimentations et recherches, nous avons trouvé qu'il était très important de standardiser (normaliser) les features pour rendre le processus d'apprentissage plus efficace, car les valeurs des features peuvent beaucoup varier entre elles, et nous ne voulons pas qu'une feature prenne le dessus sur toutes les autres. Un autre argument pour cette normalisation est que la descente de gradient (que nous utilisons pour l'entrainement du réseau) converge beaucoup plus rapidement avec des dimensions normalisées \cite{DBLP:journals/corr/IoffeS15}. Nous utilisons donc \textit{StandardScaler()} de la bibliothèque \textbf{sklearn} sur nos vecteurs de features. Grâce à cette étape de standardisation, nous avons gagné en rapidité et en qualité de convergence.
 
 
 
@@ -83,5 +86,7 @@ Dans \textbf{extract.py}, on extrait un certain nombre de features (descripteurs
 
 \section*{Conclusion}
 
+\bibliographystyle{unsrt}
+\bibliography{refs}
 
 \end{document}
