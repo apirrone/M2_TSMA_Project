@@ -61,7 +61,7 @@ Dans \textbf{extract.py}, on extrait les features (descripteurs) suivantes par m
     
 \end{itemize}
 
-
+%% Décrire les features
 
 \section*{Description du modèle}
 
@@ -69,7 +69,16 @@ Nous avons implémenté un simple réseau de neurones entièrement connecté ave
 
 Lors de nos expérimentations et recherches, nous avons trouvé qu'il était très important de standardiser (normaliser) les features pour rendre le processus d'apprentissage plus efficace, car les valeurs des features peuvent beaucoup varier entre elles, et nous ne voulons pas qu'une feature prenne le dessus sur toutes les autres. Un autre argument pour cette normalisation est que la descente de gradient (que nous utilisons pour l'entrainement du réseau) converge beaucoup plus rapidement avec des dimensions normalisées \cite{DBLP:journals/corr/IoffeS15}. Nous utilisons donc \textit{StandardScaler()} de la bibliothèque \textbf{sklearn} sur nos vecteurs de features. Grâce à cette étape de standardisation, nous avons gagné en rapidité et en qualité de convergence.
 
+%% Parler de batch size (pourquoi batchs etc)
 
+Un autre paramètre sur lequel nous avons pu jouer est le "learning rate" (rythme d'apprentissage), qui correspond à la taille des pas de l'algorithme de descente de gradient. Ce paramètre est important car il affecte la qualité de la convergence, avec un learning rate trop grand, on risque de se retrouver dans un minimum local éloigné du minimum local, alors qu'avec un learning rate plus petit, on effectue des plus petits pas, donc on calcule une meilleure approximation du gradient, donc une meilleure convergence vers le minimum global, au prix d'un temps d'exécution plus long.
+
+%% taille du réseau (trop grand, pas de généralisation, trop petit pas assez de mémoire ...)
+%% Initialisation des poids -> normal vs xavier
+
+%% cross validation
+
+%% parler du matériel sur lequel a été fait l'entrainement
 
 \section*{Résultats}
 
@@ -83,6 +92,9 @@ Lors de nos expérimentations et recherches, nous avons trouvé qu'il était tr�
 \end{figure}
 
 \section*{Améliorations possibles}
+
+%% CNN ?
+%% 
 
 \section*{Conclusion}
 
